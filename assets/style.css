@@ -33,6 +33,7 @@
     height: 785px ; 
     display: flex;
     flex-direction: column;
+    border: 1px solid  #F2F2F2;
 }
 
 .modelo {
@@ -111,6 +112,7 @@
     font-size: 18px;
 }
 
+
 .caixa {
     width: 380px;
     height: 542px;
@@ -161,21 +163,6 @@
     align-items: center;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .imagem {   
     width: 670px;
     height: 785px;
@@ -186,11 +173,85 @@
 }
 
 .box-low {
-    background-color: chartreuse;
+    background-color: #F2F2F2;
     width: 1366px;
     height: 342px;
+    display: flex;
+    flex-direction: column;
 }
 .low {
     display: flex;
     justify-content: center;
+}
+
+.ultimospedidos {
+    height: 28px;
+    color: #232323;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    margin-left: 133px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.fotos {
+    width: 1069px;
+    height: 237px;
+    margin-left: 118px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.ultimos {
+    background-color: #FFFFFF;
+    height: 237px;
+    width: 201px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.ultimos img {
+    width: 180px;
+    height: 180px;
+}
+
+.ultimos .unica {
+    width: 147px;
+    height: 203px;
+    margin-bottom: 0px;
+}
+
+h1{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.name {
+    width: 200px;
+    height: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7px;
+}
+
+.namex {
+    width: 200px;
+    height: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 17px;
 }
