@@ -1,6 +1,7 @@
-.all {
+header {
     display: flex;
     justify-content: center;
+    background-color: #404EED;
 }
 
 .top {
@@ -22,7 +23,7 @@
    margin-left: 80px;
 }
 
-.container {
+.main {
     display: flex;
     justify-content: center;
 }
@@ -33,7 +34,6 @@
     height: 785px ; 
     display: flex;
     flex-direction: column;
-    border: 1px solid  #F2F2F2;
 }
 
 .modelo {
@@ -174,9 +174,10 @@
 
 .box-low {
     background-color: #F2F2F2;
-    width: 1366px;
+    width: 100%;
     height: 342px;
     display: flex;
+    align-items: center;
     flex-direction: column;
 }
 .low {
@@ -186,11 +187,11 @@
 
 .ultimospedidos {
     height: 28px;
+    width: 1069px;
     color: #232323;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 24px;
-    margin-left: 133px;
     margin-top: 30px;
     margin-bottom: 15px;
 }
@@ -198,16 +199,14 @@
 .fotos {
     width: 1069px;
     height: 237px;
-    margin-left: 118px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .ultimos {
     background-color: #FFFFFF;
     height: 237px;
     width: 201px;
-    margin-left: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -226,13 +225,13 @@
     margin-bottom: 0px;
 }
 
-h1{
+p{
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 20px;
 }
 
-h2 {
+span {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 20px;
