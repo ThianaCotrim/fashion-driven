@@ -1,4 +1,4 @@
-//const nameUser = prompt ('Olá! Seja bem vindo(a), qual o seu nome ?');
+const nameUser = prompt ('Olá! Seja bem vindo(a), qual o seu nome ?');
 
 let modelo;
 let gola;
@@ -15,8 +15,8 @@ let obj = {
         "author": null,
 }
 
-//obj.author = nameUser;
-//obj.owner = nameUser;
+obj.author = nameUser;
+obj.owner = nameUser;
 obj.image = link;
 
 function selectModel(modeloSelecionado)  {
