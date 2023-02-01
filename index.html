@@ -13,6 +13,8 @@
     
 </head>
 <body>  
+    <div class="total">
+      
     <header>
         <div class="top">
             <div class="logo-text">
@@ -21,6 +23,7 @@
         </div> <!-- fechamento topo-->
     </header> <!--fechamento header-->
     <div class="main">
+      
         <div class="info">
             <div class="caixa">
                 <div class="modelo">
@@ -28,17 +31,17 @@
                         Escolha o modelo
                      </div>
                          <div class="roupas">
-                    <div onclick="selectModel(this)"class="box">
+                    <div onclick="selectModel(this)"class="box" id="t-shirt">
                         <img class="ball" src="./img/Ellipse 1.png">
-                        <img class="desenho" src="./img/tshirt.png">
+                        <img  class="desenho" src="./img/tshirt.png">
                     </div>
-                    <div onclick="selectModel(this)" class="box">
+                    <div onclick="selectModel(this)" class="box" id="top-tank">
                         <img class="ball" src="./img/Ellipse 1.png">
-                        <img class="desenho" src="./img/tank-top 1.png">
+                        <img  class="desenho" src="./img/tank-top 1.png">
                     </div>
-                    <div onclick="selectModel(this)" class="box">
+                    <div onclick="selectModel(this)" class="box" id="long">
                         <img class="ball" src="./img/Ellipse 1.png">
-                        <img class="desenho" src="./img/long-sleeves 1.png">
+                        <img  class="desenho" src="./img/long-sleeves 1.png">
                     </div> <!-- fechamento box-->
                 </div> <!-- fechamento roupas-->
                 <div class="descricao">
@@ -61,15 +64,15 @@
                     Escolha a gola
                 </div>
                 <div class="gola">
-                    <div onclick="selectGola(this)"class="box">
+                    <div onclick="selectGola(this)"class="box" id="v-neck">
                         <img class="ball" src="./img/Ellipse 1.png">
                         <img class="desenho2" src="./img/v-neck (1) 1.png">
                     </div>
-                    <div onclick="selectGola(this)" class="box">
+                    <div onclick="selectGola(this)" class="box" id="round">
                         <img class="ball" src="./img/Ellipse 1.png">
                         <img class="desenho2" src="./img/shirt 1.png">
                     </div>
-                    <div onclick="selectGola(this)" class="box">
+                    <div onclick="selectGola(this)" class="box" id="polo">
                         <img class="ball" src="./img/Ellipse 1.png">
                         <img class="desenho2" src="./img/polo-shirt (1) 1.png">
                     </div>
@@ -94,15 +97,15 @@
                     Escolha o tecido
                 </div>
                 <div class="tecido">
-                    <div onclick="selectTecido(this)" class="box">
+                    <div onclick="selectTecido(this)" class="box" id="silk">
                         <img class="ball" src="./img/Ellipse 1.png">
                         <img class="desenhox" src="./img/silk 1.png">
                     </div>
-                    <div onclick="selectTecido(this)" class="box">
+                    <div onclick="selectTecido(this)" class="box" id="cotton">
                         <img class="ball" src="./img/Ellipse 1.png">
                         <img class="desenho3" src="./img/organic-cotton 1.png">
                     </div>
-                    <div onclick="selectTecido(this)" class="box">
+                    <div onclick="selectTecido(this)" class="box" id="polyester">
                         <img class="ball" src="./img/Ellipse 1.png">
                         <img class="desenho3" src="./img/quimica 1.png">
                     </div>
@@ -128,10 +131,10 @@
                 <div class="texto">
                     Imagem de referência
                 </div> <!-- fechamento texto-->
-                <div class="link">
-                    <input type="text" placeholder="Insira o link">
+                <div class="link" >
+                    <input type="text" placeholder="Insira o link" id="link">
                 </div> <!-- fechamento link-->
-                <button>
+                <button onclick="confirmarPedido()" disabled>
                     Confirmar pedido
                 </button> <!-- fechamento button-->
             </div> <!-- fechamento infos-->
@@ -168,6 +171,7 @@
                         <div class="name"><p>Criador:</p> &nbsp; <span> Agata</span> </div> 
                     </div> <!-- fechamento ultimos-->
                 </div> <!-- fechamento fotos-->
+                </div> <!-- fechamento de transparente -->
             
         </div> <!-- fechamento box-low-->
     </div> <!-- fechamento low-->
