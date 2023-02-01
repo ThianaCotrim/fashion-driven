@@ -28,19 +28,19 @@
                         Escolha o modelo
                      </div>
                          <div class="roupas">
-                    <div class="box">
+                    <div onclick="selectModel(this)"class="box">
                         <img class="ball" src="./img/Ellipse 1.png">
                         <img class="desenho" src="./img/tshirt.png">
                     </div>
-                    <div class="box">
+                    <div onclick="selectModel(this)" class="box">
                         <img class="ball" src="./img/Ellipse 1.png">
                         <img class="desenho" src="./img/tank-top 1.png">
                     </div>
-                    <div class="box">
+                    <div onclick="selectModel(this)" class="box">
                         <img class="ball" src="./img/Ellipse 1.png">
                         <img class="desenho" src="./img/long-sleeves 1.png">
-                    </div>
-                </div>
+                    </div> <!-- fechamento box-->
+                </div> <!-- fechamento roupas-->
                 <div class="descricao">
                     <div class="nome">
                         T-shirt
@@ -58,18 +58,18 @@
             </div> <!-- fechamento de modelo-->
             <div class="modelo">
                 <div class="titulo">
-                    Escolha o modelo
+                    Escolha a gola
                 </div>
-                <div class="roupas">
-                    <div class="box">
+                <div class="gola">
+                    <div onclick="selectGola(this)"class="box">
                         <img class="ball" src="./img/Ellipse 1.png">
                         <img class="desenho2" src="./img/v-neck (1) 1.png">
                     </div>
-                    <div class="box">
+                    <div onclick="selectGola(this)" class="box">
                         <img class="ball" src="./img/Ellipse 1.png">
                         <img class="desenho2" src="./img/shirt 1.png">
                     </div>
-                    <div class="box">
+                    <div onclick="selectGola(this)" class="box">
                         <img class="ball" src="./img/Ellipse 1.png">
                         <img class="desenho2" src="./img/polo-shirt (1) 1.png">
                     </div>
@@ -91,18 +91,18 @@
             </div> <!-- fechamento de modelo-->
             <div class="modelo">
                 <div class="titulo">
-                    Escolha o modelo
+                    Escolha o tecido
                 </div>
-                <div class="roupas">
-                    <div class="box">
+                <div class="tecido">
+                    <div onclick="selectTecido(this)" class="box">
                         <img class="ball" src="./img/Ellipse 1.png">
                         <img class="desenhox" src="./img/silk 1.png">
                     </div>
-                    <div class="box">
+                    <div onclick="selectTecido(this)" class="box">
                         <img class="ball" src="./img/Ellipse 1.png">
                         <img class="desenho3" src="./img/organic-cotton 1.png">
                     </div>
-                    <div class="box">
+                    <div onclick="selectTecido(this)" class="box">
                         <img class="ball" src="./img/Ellipse 1.png">
                         <img class="desenho3" src="./img/quimica 1.png">
                     </div>
@@ -131,9 +131,9 @@
                 <div class="link">
                     <input type="text" placeholder="Insira o link">
                 </div> <!-- fechamento link-->
-                <div class="confirmar">
+                <button>
                     Confirmar pedido
-                </div> <!-- fechamento confirmar-->
+                </button> <!-- fechamento button-->
             </div> <!-- fechamento infos-->
             
         </div> <!-- fechamento info-->
@@ -171,6 +171,7 @@
             
         </div> <!-- fechamento box-low-->
     </div> <!-- fechamento low-->
-        
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/script.js"></script>    
 </body>
 </html>

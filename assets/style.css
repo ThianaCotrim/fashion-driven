@@ -51,7 +51,7 @@ header {
     color: #232323;
 }
 
-.roupas {
+.roupas, .gola, .tecido{
     height: 100px;
     margin-bottom: 9px;
     display: flex;
@@ -148,10 +148,14 @@ header {
     background-color: #F2F2F2;
     border: 0px;
     margin-left: 15px;
+    width: 370px;
+    height: 30px;
 }
 
-.confirmar {
+
+button {
     height: 40px;
+    width: 400px;
     background-color:#C4C4C4;
     border-radius: 10px;
     font-family: 'Roboto', sans-serif;
@@ -161,7 +165,11 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 0px;
 }
+
+
+
 
 .imagem {   
     width: 670px;
@@ -253,4 +261,9 @@ span {
     justify-content: center;
     align-items: center;
     margin-bottom: 17px;
+}
+
+.selecionado {
+    border: 3px solid #404EED;
+    border-radius: 60px;
 }
