@@ -3,7 +3,7 @@
 let modelo;
 let gola;
 let tecido;
-const link = document.getElementById('link').value;
+
 
 
 let obj = {
@@ -39,7 +39,7 @@ function selectModel(modeloSelecionado)  {
     obj.model = modelo;
     
     verificaTudoSelecionado()
-    console.log (obj)
+
 }
 
 function selectGola(golaSelecionada){
@@ -61,7 +61,7 @@ function selectGola(golaSelecionada){
     
 
     verificaTudoSelecionado()
-    console.log (obj)
+
 }
 
 function selectTecido(tecidoSelecionado){
@@ -76,10 +76,10 @@ function selectTecido(tecidoSelecionado){
 
     const tecido = tecidoSelecionado.id
     obj.material = tecido;
-    console.log (obj)
-verificaTudoSelecionado()
+  
+    verificaTudoSelecionado()
 
-
+console.log (obj)
 }
 
 function confirmarPedido(){
@@ -87,30 +87,36 @@ function confirmarPedido(){
     alert ('Parabéns! Sua encomenda foi feita efetuada com sucesso. Obrigada pela preferência, volte sempre!');
 }
 
+
+
 function verificaTudoSelecionado() {
 
-    const link = document.getElementById('link').value
-    console.log(link)
-
-   if (obj.model && obj.neck && obj.material){
+   const link = document.getElementById('link').value
+    
+   if (obj.model && obj.neck && obj.material && link){
     const model = document.querySelector('button')
     model.classList.add('confirmarPedido')
     model.removeAttribute('disabled')
    }
+
+   const verificar = document.getElementById('link')
+   verificar.addEventListener('input', verificaTudoSelecionado)
+   
  
-   validUrl(link);
+   
+ 
 }
 
-function validUrl(link){
 
+function validUrl(link){
+    
     let httpRegex = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/;
     let regex = new RegExp (httpRegex);
     obj.image = link;
 
-    if (link.match (regex)){
+    if (link.match(regex)){
         return true
     } else {
         return false
     }
 }
-
