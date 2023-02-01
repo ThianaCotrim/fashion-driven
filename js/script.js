@@ -3,7 +3,7 @@
 let modelo;
 let gola;
 let tecido;
-
+const link = document.getElementById('link').value
 
 
 let obj = {
@@ -102,7 +102,7 @@ function verificaTudoSelecionado() {
    const verificar = document.getElementById('link')
    verificar.addEventListener('input', verificaTudoSelecionado)
    
- 
+   validUrl(link)
    
  
 }
