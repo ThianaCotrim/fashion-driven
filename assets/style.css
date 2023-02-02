@@ -209,6 +209,9 @@ button {
     height: 237px;
     display: flex;
     justify-content: space-between;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    
 }
 
 .ultimos {

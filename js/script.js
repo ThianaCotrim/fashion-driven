@@ -5,6 +5,19 @@ let gola;
 let tecido;
 const link = document.getElementById('link').value
 
+let dados = [
+	{
+		"id": null,
+		"model": null,
+		"neck": null,
+		"material": null,
+		"image": null,
+		"owner": null,
+		"author": null,
+	}
+]
+
+
     let obj = {
         "model": null,
         "neck": null,
@@ -85,7 +98,9 @@ function selectTecido(tecidoSelecionado){
 }
 
 function confirmarPedido(){
+
     enviarPedido()
+    
 
     
 }
@@ -131,10 +146,11 @@ function enviarPedido() {
     promisse.then(respostaChegou);
     promisse.catch(respostaDeuErrado)
     console.log (promisse)
-
+ 
 }
 
 function respostaChegou (resposta){
+    pegarPedidosNoServidor();
     alert ('Parabéns! Sua encomenda foi feita efetuada com sucesso. Obrigada pela preferência, volte sempre!');
     console.log(resposta)
    
@@ -152,13 +168,13 @@ function exibePedido(){
 
     pedidos.innerHTML = '';
 
-    for (let i = 0; i < 5 ; i++){
+    for (let i = 0; i < 10 ; i++){
 
         objeto = lista[i]
         
         let template = `
-                    <div onclick="pedidoCriado()" class="ultimos">
-                        <img src=${objeto.image}>
+                    <div id="${i}" onclick="pedidoCriado(this)" class="ultimos">
+                        <img src=${objeto.image} onerror="this.onerror=null;this.src='./img/erro.png'">
                         <div class="name"><p>Criador:</p> &nbsp; <span> ${objeto.owner}</span> </div>
                     </div> <!-- fechamento ultimos-->
     `;
@@ -171,11 +187,11 @@ function pegarPedidosNoServidor(){
     const promessa  = axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts')
     promessa.then(pedidosChegaram);
     promessa.catch(deuErroPegarPedidos);
+
 } 
 
 function pedidosChegaram(resposta){
    
-    console.log(resposta.data)
 
     lista = resposta.data
 
@@ -189,9 +205,47 @@ function pedidosChegaram(resposta){
 } 
 
 
- function pedidoCriado(){
 
-   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ function pedidoCriado(blusaClicada){
+    
+    const pedido = axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts' )
+    pedido.then( (blusaClicada, resposta) => {
+
+        console.log(blusaClicada)
+        console.log(resposta)
+    })
+    
     const retorno = confirm("Deseja fazer um pedido desse modelo ?");
     if (retorno == true)
     {
@@ -199,6 +253,39 @@ function pedidosChegaram(resposta){
     } else {
     alert ('Operação cancelada')
     }
-   
 } 
+
+function pegueiOsDados(resposta) {
+
+    listas = resposta.data
+
+    
+  
+        
+        console.log(listas)
+        console.log(document.querySelectorAll('.ultimos'))
+    
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 pegarPedidosNoServidor()
