@@ -5,19 +5,21 @@ let gola;
 let tecido;
 const link = document.getElementById('link').value
 
-
-let obj = {
+    let obj = {
         "model": null,
         "neck": null,
-        "material": null,
+        "material":null,
         "image": null,
         "owner": null,
-        "author": null,
+        "author": null, 
+    
 }
 
 obj.author = nameUser;
 obj.owner = nameUser;
 obj.image = link;
+
+
 
 function selectModel(modeloSelecionado)  {
 
@@ -76,17 +78,17 @@ function selectTecido(tecidoSelecionado){
 
     const tecido = tecidoSelecionado.id
     obj.material = tecido;
-  
+    
     verificaTudoSelecionado()
+   
 
-console.log (obj)
 }
 
 function confirmarPedido(){
+    enviarPedido()
 
-    alert ('Parabéns! Sua encomenda foi feita efetuada com sucesso. Obrigada pela preferência, volte sempre!');
+    
 }
-
 
 
 function verificaTudoSelecionado() {
@@ -103,6 +105,7 @@ function verificaTudoSelecionado() {
    verificar.addEventListener('input', verificaTudoSelecionado)
    
    validUrl(link)
+  
    
  
 }
@@ -120,3 +123,82 @@ function validUrl(link){
         return false
     }
 }
+
+function enviarPedido() {
+    
+    const promisse = axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', obj )
+
+    promisse.then(respostaChegou);
+    promisse.catch(respostaDeuErrado)
+    console.log (promisse)
+
+}
+
+function respostaChegou (resposta){
+    alert ('Parabéns! Sua encomenda foi feita efetuada com sucesso. Obrigada pela preferência, volte sempre!');
+    console.log(resposta)
+   
+    console.log(obj)
+}
+
+function respostaDeuErrado(){
+    alert ('Ops, não conseguimos processar sua encomenda');
+    
+}
+
+function exibePedido(){
+   
+    const pedidos = document.querySelector('.fotos')
+
+    pedidos.innerHTML = '';
+
+    for (let i = 0; i < 5 ; i++){
+
+        objeto = lista[i]
+        
+        let template = `
+                    <div onclick="pedidoCriado()" class="ultimos">
+                        <img src=${objeto.image}>
+                        <div class="name"><p>Criador:</p> &nbsp; <span> ${objeto.owner}</span> </div>
+                    </div> <!-- fechamento ultimos-->
+    `;
+
+        pedidos.innerHTML = pedidos.innerHTML + template;
+    }
+}
+
+function pegarPedidosNoServidor(){
+    const promessa  = axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts')
+    promessa.then(pedidosChegaram);
+    promessa.catch(deuErroPegarPedidos);
+} 
+
+function pedidosChegaram(resposta){
+   
+    console.log(resposta.data)
+
+    lista = resposta.data
+
+    exibePedido();
+    
+}
+
+ function deuErroPegarPedidos(erro){
+  
+    console.log(erro)
+} 
+
+
+ function pedidoCriado(){
+
+   
+    const retorno = confirm("Deseja fazer um pedido desse modelo ?");
+    if (retorno == true)
+    {
+    alert ('Operação confirmada') 
+    } else {
+    alert ('Operação cancelada')
+    }
+   
+} 
+pegarPedidosNoServidor()
