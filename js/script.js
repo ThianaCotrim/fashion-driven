@@ -20,8 +20,7 @@ obj.author = nameUser;
 obj.owner = nameUser;
 obj.image = link;
 
-
-function selectModel(modeloSelecionado)  {
+const selectModel = (modeloSelecionado) =>  {
 
     const modeloAnterior = document.querySelector('.roupas .selecionado')
     
@@ -32,7 +31,6 @@ function selectModel(modeloSelecionado)  {
 
     modeloSelecionado.classList.add('selecionado')
 
-
     const modelo = modeloSelecionado.id;
   
     obj.model = modelo;
@@ -40,7 +38,7 @@ function selectModel(modeloSelecionado)  {
     verificaTudoSelecionado()
 }
 
-function selectGola(golaSelecionada){
+const selectGola = (golaSelecionada) => {
 
     const golaAnterior = document.querySelector('.gola .selecionado')
 
@@ -55,11 +53,10 @@ function selectGola(golaSelecionada){
 
     obj.neck = gola;
     
-
     verificaTudoSelecionado()
 }
 
-function selectTecido(tecidoSelecionado){
+const selectTecido = (tecidoSelecionado) => {
 
     const tecidoAnterior = document.querySelector('.tecido .selecionado')
 
@@ -75,12 +72,12 @@ function selectTecido(tecidoSelecionado){
     verificaTudoSelecionado()
 }
 
-function confirmarPedido(){
+const confirmarPedido =()=> {
 
     enviarPedido()
 }
 
-function verificaTudoSelecionado() {
+const verificaTudoSelecionado = () => {
 
    const link = document.getElementById('link').value
     
@@ -97,7 +94,7 @@ function verificaTudoSelecionado() {
  
 }
 
-function validUrl(link){
+const validUrl = (link) => {
     
     let httpRegex = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/;
     let regex = new RegExp (httpRegex);
@@ -110,7 +107,7 @@ function validUrl(link){
     }
 }
 
-function enviarPedido() {
+const enviarPedido = () => {
     
     const promisse = axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', obj )
 
@@ -119,7 +116,7 @@ function enviarPedido() {
     console.log (promisse)
 }
 
-function respostaChegou (resposta){
+const respostaChegou = (resposta) => {
     pegarPedidosNoServidor();
     alert ('Parabéns! Sua encomenda foi efetuada com sucesso. Obrigada pela preferência, volte sempre!');
     console.log(resposta)
@@ -127,12 +124,11 @@ function respostaChegou (resposta){
     console.log(obj)
 }
 
-function respostaDeuErrado(){
-    alert ('Ops, não conseguimos processar sua encomenda');
-    
+const respostaDeuErrado = () => {
+    alert ('Ops, não conseguimos processar sua encomenda'); 
 }
 
-function exibePedido(){
+const exibePedido = () => {
    
     const pedidos = document.querySelector('.fotos')
 
@@ -153,14 +149,14 @@ function exibePedido(){
     }
 }
 
-function pegarPedidosNoServidor(){
+const pegarPedidosNoServidor = () => {
     const promessa  = axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts')
     promessa.then(pedidosChegaram);
     promessa.catch(deuErroPegarPedidos);
 
 } 
 
-function pedidosChegaram(resposta){
+const pedidosChegaram = (resposta) => {
    
 
     lista = resposta.data
@@ -168,19 +164,19 @@ function pedidosChegaram(resposta){
     exibePedido();
 }
 
- function deuErroPegarPedidos(erro){
+ const deuErroPegarPedidos = (erro) => {
   
     console.log(erro)
 } 
 
- function pedidoCriado(blusaClicada){
+ const pedidoCriado = (blusaClicada) => {
     
     const pedido = axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts' )
     pedido.then( (resposta) => pegueiOsDados (resposta, blusaClicada))
 
 } 
 
-function pegueiOsDados(resposta, blusaClicada) {
+const pegueiOsDados = (resposta, blusaClicada) => {
 
     blusa = resposta.data[blusaClicada.id]
 

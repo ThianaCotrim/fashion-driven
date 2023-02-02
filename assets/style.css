@@ -112,7 +112,6 @@ header {
     font-size: 18px;
 }
 
-
 .caixa {
     width: 380px;
     height: 542px;
@@ -152,7 +151,6 @@ header {
     height: 30px;
 }
 
-
 button {
     height: 40px;
     width: 400px;
@@ -167,9 +165,6 @@ button {
     align-items: center;
     border: 0px;
 }
-
-
-
 
 .imagem {   
     width: 670px;
@@ -211,18 +206,19 @@ button {
     justify-content: space-between;
     overflow-x: scroll;
     overflow-y: hidden;
-    
 }
 
 .ultimos {
-    background-color: #FFFFFF;
-    height: 237px;
-    width: 201px;
+    background-color:white;
+    height: 225px;
+    width: 195px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-radius: 10px;
     align-items: center;
+    margin-right: 10px;
+    
 }
 
 .ultimos img {
@@ -274,7 +270,6 @@ span {
 
 .transparente {
     opacity: 0.3;
-
 }
 
 .escondido {
