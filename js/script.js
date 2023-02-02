@@ -1,22 +1,10 @@
 const nameUser = prompt ('Olá! Seja bem vindo(a), qual o seu nome ?');
 
+let blusa = null;
 let modelo;
 let gola;
 let tecido;
 const link = document.getElementById('link').value
-
-let dados = [
-	{
-		"id": null,
-		"model": null,
-		"neck": null,
-		"material": null,
-		"image": null,
-		"owner": null,
-		"author": null,
-	}
-]
-
 
     let obj = {
         "model": null,
@@ -33,12 +21,10 @@ obj.owner = nameUser;
 obj.image = link;
 
 
-
 function selectModel(modeloSelecionado)  {
 
     const modeloAnterior = document.querySelector('.roupas .selecionado')
     
-
     if (modeloAnterior !== null){
 
     modeloAnterior.classList.remove('selecionado')
@@ -49,18 +35,14 @@ function selectModel(modeloSelecionado)  {
 
     const modelo = modeloSelecionado.id;
   
-
-
     obj.model = modelo;
     
     verificaTudoSelecionado()
-
 }
 
 function selectGola(golaSelecionada){
 
     const golaAnterior = document.querySelector('.gola .selecionado')
-   
 
     if (golaAnterior !== null ){
 
@@ -70,13 +52,11 @@ function selectGola(golaSelecionada){
     golaSelecionada.classList.add('selecionado');
 
     const gola = golaSelecionada.id
-   
 
     obj.neck = gola;
     
 
     verificaTudoSelecionado()
-
 }
 
 function selectTecido(tecidoSelecionado){
@@ -93,18 +73,12 @@ function selectTecido(tecidoSelecionado){
     obj.material = tecido;
     
     verificaTudoSelecionado()
-   
-
 }
 
 function confirmarPedido(){
 
     enviarPedido()
-    
-
-    
 }
-
 
 function verificaTudoSelecionado() {
 
@@ -120,11 +94,8 @@ function verificaTudoSelecionado() {
    verificar.addEventListener('input', verificaTudoSelecionado)
    
    validUrl(link)
-  
-   
  
 }
-
 
 function validUrl(link){
     
@@ -146,12 +117,11 @@ function enviarPedido() {
     promisse.then(respostaChegou);
     promisse.catch(respostaDeuErrado)
     console.log (promisse)
- 
 }
 
 function respostaChegou (resposta){
     pegarPedidosNoServidor();
-    alert ('Parabéns! Sua encomenda foi feita efetuada com sucesso. Obrigada pela preferência, volte sempre!');
+    alert ('Parabéns! Sua encomenda foi efetuada com sucesso. Obrigada pela preferência, volte sempre!');
     console.log(resposta)
    
     console.log(obj)
@@ -196,7 +166,6 @@ function pedidosChegaram(resposta){
     lista = resposta.data
 
     exibePedido();
-    
 }
 
  function deuErroPegarPedidos(erro){
@@ -204,88 +173,44 @@ function pedidosChegaram(resposta){
     console.log(erro)
 } 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  function pedidoCriado(blusaClicada){
     
     const pedido = axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts' )
-    pedido.then( (blusaClicada, resposta) => {
+    pedido.then( (resposta) => pegueiOsDados (resposta, blusaClicada))
 
-        console.log(blusaClicada)
-        console.log(resposta)
-    })
-    
+} 
+
+function pegueiOsDados(resposta, blusaClicada) {
+
+    blusa = resposta.data[blusaClicada.id]
+
+            
     const retorno = confirm("Deseja fazer um pedido desse modelo ?");
     if (retorno == true)
     {
+
+        const promisse = axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', 
+        {  
+
+            "model": blusa.model,
+            "neck": blusa.neck,
+            "material":blusa.material,
+            "image": blusa.image,
+            "owner": nameUser,
+            "author": blusa.owner, 
+
+        })
+
+        promisse.then(respostaChegou);
+        promisse.catch(respostaDeuErrado)
+        console.log (promisse)
+    
+
     alert ('Operação confirmada') 
+
     } else {
     alert ('Operação cancelada')
     }
-} 
-
-function pegueiOsDados(resposta) {
-
-    listas = resposta.data
-
-    
-  
-        
         console.log(listas)
-        console.log(document.querySelectorAll('.ultimos'))
-    
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 pegarPedidosNoServidor()
